@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // Components
 import SignIn from './components/auth/SignIn';
+import SignUp from './components/auth/SignUp';
 import Navbar from './components/layout/Navbar';
 import Dashboard from './components/dashboard/Dashboard';
 import ProjectDetails from './components/projects/ProjectDetails';
@@ -17,6 +18,7 @@ class App extends Component {
             <Route exact path="/" component={Dashboard} />
             <Route exact path="/project/:id" component={ProjectDetails} />
             <Route exact path="/signin" component={SignIn} />
+            <Route exact path="/signup" component={SignUp} />
           </Switch>
         </div>
       </Router>
