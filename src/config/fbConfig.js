@@ -4,7 +4,7 @@ import 'firebase/auth';
 
 // Initialize Firebase
 var config = {
-  apiKey: 'AIzaSyCNwEoEC4WD727ZWb9XWiK_A7pLZruxUHo',
+  apiKey: 'AIzaSyCNwEoEC4WD727ZWb9XWiK_A7pLZruxUHo', // yes i know its exposed on github!
   authDomain: 'marioplan-6de86.firebaseapp.com',
   databaseURL: 'https://marioplan-6de86.firebaseio.com',
   projectId: 'marioplan-6de86',
