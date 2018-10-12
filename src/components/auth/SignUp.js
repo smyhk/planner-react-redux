@@ -17,7 +17,7 @@ class SignUp extends Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    console.info(this.state);
+    // console.info(this.state);
   };
   render() {
     return (
