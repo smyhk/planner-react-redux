@@ -10,7 +10,7 @@ import ProjectList from '../projects/ProjectList';
 class Dashboard extends Component {
   render() {
     // console.info(this.props);
-    const { projects, auth } = this.props;
+    const { projects, auth, notifications } = this.props;
     // Reirect user to login page if not signed in
     if (!auth.uid) {
       return <Redirect to="/signin" />;
@@ -22,7 +22,7 @@ class Dashboard extends Component {
             <ProjectList projects={projects} />
           </div>
           <div className="col s12 m5 offset-m1">
-            <Notifications />
+            <Notifications notifications={notifications} />
           </div>
         </div>
       </div>
@@ -30,15 +30,19 @@ class Dashboard extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   // console.info(state);
   return {
     projects: state.firestore.ordered.projects,
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    notifications: state.firestore.ordered.notifications
   };
 };
 
 export default compose(
   connect(mapStateToProps),
-  firestoreConnect([{ collection: 'projects' }])
+  firestoreConnect([
+    { collection: 'projects' },
+    { collection: 'notifications', limit: 3 }
+  ])
 )(Dashboard);
